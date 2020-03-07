@@ -1,0 +1,11 @@
+---
+
+- name: update ubuntu servers
+
+  hosts: docker
+#  become: yes
+  remote_user: root
+  
+  roles:
+    - common
+

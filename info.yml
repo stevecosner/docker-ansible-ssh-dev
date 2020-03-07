@@ -1,0 +1,24 @@
+---
+- hosts: docker
+  remote_user: root
+# become: yes
+
+  tasks:
+    - name: get uptime
+      raw: uptime
+      register: info
+
+    - debug: var=info.stdout_lines
+
+    - name: get OS release
+      raw: cat /etc/os-release
+      register: info
+
+    - debug: var=info.stdout_lines
+     
+    - name: get linux info
+      raw: uname -a
+
+      register: info
+
+    - debug: var=info.stdout_lines
